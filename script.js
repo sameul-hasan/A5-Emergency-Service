@@ -1,3 +1,5 @@
+
+
 function getelement(id){
     const element = document.getElementById(id);
     return element;
@@ -31,7 +33,7 @@ for(const cb of copyButtons){
 
 const callButtons = getelementC("call-btn");
 const historyDiv = getelement("history-div");
-const coin = getelement("coinCount");
+let coin = getelement("coinCount");
 const Clear = getelement("clear");
 const time = new Date();
 
@@ -46,6 +48,7 @@ getelement("Cards").addEventListener("click", function (e){
             alert("You don't have enough coins");
             return;
         }
+        else if(coin.innerText >= 20){
         const service = e.target.parentNode.parentNode.children[1].children[0].innerText;
         const Number = e.target.parentNode.parentNode.children[2].children[0].innerText;
         const CurrentTime = time.getHours() + ":" + time.getMinutes() + ":"+ time.getSeconds() + " " + (time.getHours() >= 12 ? 'PM' : 'AM');
@@ -67,7 +70,8 @@ getelement("Cards").addEventListener("click", function (e){
                     `;
         historyDiv.append(CreateDiv);
         
-        coin.innerText = Number(coin.innerText) - 20 ;
+        coin.innerText = parseInt(coin.innerText) - 20 ;
+        }
     }
     
 })
