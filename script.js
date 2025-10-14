@@ -49,13 +49,12 @@ getelement("Cards").addEventListener("click", function (e){
             return;
         }
         else if(coin.innerText >= 20){
+        coin.innerText = parseInt(coin.innerText) - 20 ;
         const service = e.target.parentNode.parentNode.children[1].children[0].innerText;
         const Number = e.target.parentNode.parentNode.children[2].children[0].innerText;
         const CurrentTime = time.getHours() + ":" + time.getMinutes() + ":"+ time.getSeconds() + " " + (time.getHours() >= 12 ? 'PM' : 'AM');
         alert("Calling " + service + " " + Number + " at " + CurrentTime);
         
-        
-
         const CreateDiv = document.createElement("div");
         CreateDiv.innerHTML = `
                     <div class="bg-[#FAFAFA] p-4 flex justify-between items-center border-gray-200 rounded-lg">
@@ -70,7 +69,7 @@ getelement("Cards").addEventListener("click", function (e){
                     `;
         historyDiv.append(CreateDiv);
         
-        coin.innerText = parseInt(coin.innerText) - 20 ;
+       
         }
     }
     
